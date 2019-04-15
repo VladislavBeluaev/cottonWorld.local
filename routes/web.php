@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace'=>'User',],function(){
+    Route::group(['prefix'=>'mans'],function (){
+        Route::get('futbolki','DashboardController@mansTShirts')->name('user.mansTShirts');
+    });
+    Route::get('/','DashboardController@index')->name('user.index');
 });
