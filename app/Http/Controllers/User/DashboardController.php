@@ -10,7 +10,7 @@ class DashboardController extends Controller
     function index(){
         return view('user.user_dashboard');
     }
-    function mansTShirts(){
-        return view('user.mans.mayki');
+    function menTShirts(){
+        return view('user.men.TShirts');
     }
 }

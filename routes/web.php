@@ -12,8 +12,8 @@
 */
 
 Route::group(['namespace'=>'User',],function(){
-    Route::group(['prefix'=>'mans'],function (){
-        Route::get('futbolki','DashboardController@mansTShirts')->name('user.mansTShirts');
+    Route::group(['prefix'=>'men'],function (){
+        Route::get('t-shirts','DashboardController@menTShirts')->name('user.menTShirts');
     });
     Route::get('/','DashboardController@index')->name('user.index');
 });
