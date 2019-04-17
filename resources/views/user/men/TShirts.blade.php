@@ -62,7 +62,7 @@
                             <input type="checkbox" class="checkbox-button__input" name="tShirts-shortSleeve">
                             <span class="checkbox-button__control"></span>
                             <span class="checkbox-button__label">Акционные</span>
-                            <span ><img src="{{asset('images/sales.png')}}" alt="sale"></span>
+                            <span><img src="{{asset('images/sales.png')}}" alt="sale"></span>
                         </label>
                         <label class="checkbox-button">
                             <input type="checkbox" class="checkbox-button__input" name="tShirts-longSleeve">
@@ -84,13 +84,29 @@
                         <h4>Цена</h4>
                         <div class="input-group input-group-sm">
                             <input type="number" name="min-price" class="form-control" placeholder="от">
-                            <input type="number" name="max-price" class="form-control" placeholder="до" >
+                            <input type="number" name="max-price" class="form-control" placeholder="до">
                             <input type="hidden" name="inputPrice" title="result">
                         </div>
                     </div>
                 </div>
                 <div class="mobile-aside-container d-none"></div>
-                <div class="products-container"></div>
+                <div class="products-container">
+                    <div class="products-container__header">
+                        <h1>Футболки для мужчин от производителя</h1>
+                        <div class="sort-by">
+                            <div><span>Сортировать по:</span></div>
+                            <div class="dropdown_menu">
+                                <div><a href="#">Названию</a></div>
+                                <div><span class="fas fa-angle-down"></span></div>
+                                <div class="dropdown_menu-items d-none">
+                                    <div class="dropdown_menu-item"><a href="#">Цене</a></div>
+                                    <div class="dropdown_menu-item"><a href="#">Названию</a></div>
+                                    <div class="dropdown_menu-item"><a href="#">Плотности</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
