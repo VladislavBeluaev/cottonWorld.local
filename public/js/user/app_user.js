@@ -1,3 +1,6 @@
-/**
- * Created by Dragon on 16.04.2019.
- */
+(function ($, undefined) {
+    $(function () {
+        //alert($(window).width());
+    });
+
+})(jQuery);

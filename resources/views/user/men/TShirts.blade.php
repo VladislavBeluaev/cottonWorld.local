@@ -89,7 +89,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="mobile-aside-container d-none"></div>
                 <div class="products-container">
                     <div class="products-container__header">
                         <h1>Футболки для мужчин от производителя</h1>
@@ -97,7 +96,7 @@
                             <div><span>Сортировать по:</span></div>
                             <div class="dropdown_menu">
                                 <div><a href="#">Названию</a></div>
-                                <div><span class="fas fa-angle-down"></span></div>
+                                <div><span class="fas fa-caret-down"></span></div>
                                 <div class="dropdown_menu-items d-none">
                                     <div class="dropdown_menu-item"><a href="#">Цене</a></div>
                                     <div class="dropdown_menu-item"><a href="#">Названию</a></div>
@@ -105,6 +104,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="mobile-aside-container">
+                        <div><a href="#">Фильтр товаров</a></div>
+                        <div><span class="fas fa-caret-down"></span></div>
                     </div>
                 </div>
 
