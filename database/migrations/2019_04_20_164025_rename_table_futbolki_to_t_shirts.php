@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddMaterialQualityFKToFutbolkiTable extends Migration
+class RenameTableFutbolkiToTShirts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddMaterialQualityFKToFutbolkiTable extends Migration
     public function up()
     {
         Schema::table('futbolki', function (Blueprint $table) {
-            $table->integer('material_quality_id')->unsigned()->after('t_shirts_types_id');
-            $table->foreign('material_quality_id')->references('id')->on('material_quality')->onDelete('cascade');
+            $table->rename('t_shirts');
         });
     }
 
@@ -27,7 +26,7 @@ class AddMaterialQualityFKToFutbolkiTable extends Migration
     public function down()
     {
         Schema::table('futbolki', function (Blueprint $table) {
-            $table->dropColumn('material_quality_id');
+            $table->rename('t_shirts');
         });
     }
 }
