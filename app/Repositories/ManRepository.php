@@ -20,7 +20,7 @@ class ManRepository implements Repository
     public function all()
     {
         $eloquentRelation = $this->eloquentRelation;
-        return $this->gender->getModelByUrlPrefix($this->urlPrefix)->$eloquentRelation;
+        return $this->gender->getModelByUrlPrefix($this->urlPrefix)->$eloquentRelation->load('colors')->load('images');
     }
 
     public function find(int $id)

@@ -2,7 +2,7 @@ INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('white
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('red','красный',now(),now());
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('burgundy','бордовый',now(),now());
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('crimson','малиновый',now(),now());
-INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('розовый','розовый',now(),now());
+INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('pink','розовый',now(),now());
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('beige','бежевый',now(),now());
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('orange','оранжевый',now(),now());
 INSERT INTO colors(`en_name`,`rus_name`,`created_at`,`updated_at`) values('yellow','желтый',now(),now());

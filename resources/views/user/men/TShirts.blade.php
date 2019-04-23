@@ -8,7 +8,6 @@
                     <p><a href="{{route('user.index')}}">Главная</a></p>
                     <p><span class="fas fa-angle-right"></span></p>
                     <p><a href=""></a>Мужские футболки</p>
-                    <p>{{time()}}</p>
                 </nav>
             </div>
             <div class="collection-container d-flex justify-content-between align-items-start">
@@ -156,245 +155,32 @@
                     </div>
                     <div class="products-container__cards">
                         <div class="row no-margins">
+                            @foreach($t_shirts as $t_shirt)
                             <div class="products_card col-4">
                                 <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
+                                    <p><a href="#">{{$t_shirt->name}}</a></p>
                                 </div>
                                 <div class="product_density">
-                                    <p>175-180 г/м2</p>
+                                    <p>{{$t_shirt->density}}</p>
                                 </div>
                                 <div class="product_img">
                                     <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
+                                            <img src="{{asset($t_shirt->images->first()->img_src)}}"
+                                                 alt="{{$t_shirt->images->first()->img_alt}}">
                                         </a></p>
                                     <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
+                                        <span class="product_price__text">{{$t_shirt->price}}</span>
                                     </div>
                                 </div>
                                 <div class="product_available-colors">
                                     <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
+                                        @foreach($t_shirt->colors as $color)
+                                        <div class="color color-{{$color->en_name}}"></div>
+                                            @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div><div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div><div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
-                            </div><div class="products_card col-4">
-                                <div class="product_name">
-                                    <p><a href="#">Промофутболка &laquo;Эконом&raquo;</a></p>
-                                </div>
-                                <div class="product_density">
-                                    <p>175-180 г/м2</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset('images/promo-futbolka_econom.jpg')}}"
-                                                 alt="промофутболка">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">15.00 р.</span>
-                                    </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                        <div class="color color-black"></div>
-                                        <div class="color color-blue"></div>
-                                        <div class="color color-red"></div>
-                                        <div class="color color-green"></div>
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
                         </div>
                     </div>

@@ -29,6 +29,7 @@ values($k,$v,now(),now());\r\n",FILE_APPEND);
     }
     function menTShirts(Repository $menRepository){
 
+
         return view('user.men.TShirts',["t_shirts"=>$menRepository->all()]);
     }
 }
