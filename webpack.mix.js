@@ -11,6 +11,6 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.less('resources/assets/less/_app.less', '/public/css/user/app.css');
+mix.less('resources/assets/less/_app.less', 'public/css/user/app.css').browserSync('cottonworld.local:90');
 
 
