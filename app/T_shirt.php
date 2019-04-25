@@ -15,6 +15,11 @@ class T_shirt extends Model
     public function images(){
         return $this->belongsToMany(Image::class,'t_shirt_image');
     }
+    public function getRouteKeyName()
+    {
+       return "routeKeyName";
+    }
+
     public function getPriceAttribute($value)
     {
         return sprintf('%s р.',$value);
