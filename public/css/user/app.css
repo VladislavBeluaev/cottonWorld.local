@@ -535,6 +535,11 @@ input.form-control:focus {
     width: 80%;
   }
 }
+@media (min-width: 1165px) and (max-width: 1376px) {
+  .product_name {
+    height: 24px;
+  }
+}
 @media (min-width: 1036px) and (max-width: 1124px) {
   .product_img img {
     height: 165px;
@@ -558,6 +563,11 @@ input.form-control:focus {
 @media (min-width: 675px) and (max-width: 802px) {
   .product_img img {
     height: 150px;
+  }
+}
+@media (min-width: 830px) and (max-width: 991px) {
+  .product_name {
+    height: 24px;
   }
 }
 @media (max-width: 991px) {
