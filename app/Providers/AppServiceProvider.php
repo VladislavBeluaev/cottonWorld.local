@@ -21,8 +21,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('headerImg',function($expression){
             //dd($expression);
             list($collectionImages,$attrType)=explode(',',$expression);
-            $modelProperty = "img_$attrType";
-            return "<?php echo ($collectionImages)->first()->$modelProperty; ?>";
+            $modelProperty = str_replace('"','',sprintf("img_%s",$attrType));
+            $callString = "($collectionImages)->first()->$modelProperty";
+            if($attrType=='"src"') $callString = "asset(($collectionImages)->first()->$modelProperty)";
+            return "<?php echo $callString ?>";
         });
     }
 

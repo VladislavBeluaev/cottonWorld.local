@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Gender;
 use App\Interfaces\Repository;
-use App\Repositories\{ChildRepository,ManRepository,WomanRepository};
+use App\Repositories\{CategoryRepository};
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use Mockery\Exception;
@@ -37,7 +37,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(Repository::class,function(){
             $gender = $this->app->make(Gender::class);
             $requestInstance = $this->app[Request::class];
-            $routePrefix = substr($requestInstance->route()->getPrefix(),1);
+            return new CategoryRepository($gender,$requestInstance);
+            /*$routePrefix = substr($requestInstance->route()->getPrefix(),1);
             switch ($routePrefix){
                 case "men":
                     return new ManRepository($gender,$requestInstance);
@@ -46,11 +47,12 @@ class RepositoryServiceProvider extends ServiceProvider
                     return new WomanRepository($gender);
                     break;
                 case "children":
-                    return new ChildRepository($gender);
+                    return new CategoryRepository($gender);
                     break;
                 default:
                     throw new Exception(sprintf("%sRepository does not exists.",ucfirst($routePrefix)));
-            }
+            }*/
         });
     }
+
 }

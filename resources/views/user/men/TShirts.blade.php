@@ -159,21 +159,17 @@
                             <div class="products_card col-4">
                                 <div class="product_name">
                                     <p>
-                                        <a href="@productLink(route('user.menTShirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
+                                        <a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
                                     </p>
                                 </div>
                                 <div class="product_density">
                                     <p>{{$t_shirt->density}}</p>
                                 </div>
                                 <div class="product_img">
-                                    <p><a href="#">
-                                            <img src="{{asset($t_shirt->images->first()->img_src)}}"
-                                                 alt="{{$t_shirt->images->first()->img_alt}}">
-                                        </a></p>
-                                    {{--<p><a href="#">
+                                    <p><a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">
                                             <img src="@headerImg($t_shirt->images,"src")"
                                                  alt="@headerImg($t_shirt->images,"alt")">
-                                        </a></p>--}}
+                                        </a></p>
                                     <div class="product_price">
                                         <span class="product_price__text">{{$t_shirt->price}}</span>
                                     </div>

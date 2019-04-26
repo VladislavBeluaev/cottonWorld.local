@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Gender;
 use App\Interfaces\Repository;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
 
 class DashboardController extends Controller
 {
+    function __construct(Repository $repository)
+    {
+       $this->repository =  $repository;
+       $this->bladePath = sprintf("user.%s.TShirts",getRoutePrefix());
+    }
+
     function index(){
         /*$arr = [
           [1,2,5,7,8,9,10,11,12,13,15,16],
@@ -27,9 +32,12 @@ values($k,$v,now(),now());\r\n",FILE_APPEND);
         }*/
         return view('user.user_dashboard');
     }
-    function menTShirts(Repository $menRepository){
-
-
-        return view('user.men.TShirts',["t_shirts"=>$menRepository->all()]);
+    function allTShirts(){
+        return view($this->bladePath,["t_shirts"=>$this->repository->all()]);
     }
+    function getTShirt(Model $model){
+        dd($this->repository->find($model));
+    }
+    protected $repository;
+    protected $bladePath;
 }
