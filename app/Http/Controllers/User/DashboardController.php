@@ -17,17 +17,15 @@ class DashboardController extends Controller
 
     function index(){
         /*$arr = [
-          [1,2,5,7,8,9,10,11,12,13,15,16],
-            range(1,16),
-            [1,2,13,15],
-            range(1,16),
-            [1,13]
-
+          [1,2,8,12,13,14,15],
+            [1,2,5,7,8,12,13,15],
+            [1,15],
+            [1,2,7,8,13,15],
         ];
         foreach ($arr as $key=>$value){
             foreach ($value as $v){
-                $k = $key+1;
-                file_put_contents('D:\2016-05-16\OP\OSPanel\domains\cottonWorld.local\database\scripts\new_install\insert\fill_T_shirts_color.sql',"INSERT INTO t_shirt_color(`t_shirt_id`,`color_id`,`created_at`,`updated_at`)
+                $k = $key+6;
+                file_put_contents('D:\temp\OSPanel\domains\cottonWorld.local\database\scripts\new_install\insert\fill_T_shirts_color.sql',"INSERT INTO t_shirt_color(`t_shirt_id`,`color_id`,`created_at`,`updated_at`)
 values($k,$v,now(),now());\r\n",FILE_APPEND);
             }
         }*/
