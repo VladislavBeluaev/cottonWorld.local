@@ -5,13 +5,14 @@ namespace App\Http\Controllers\User;
 use App\Interfaces\Repository;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     function __construct(Repository $repository)
     {
        $this->repository =  $repository;
-       $this->bladePath = sprintf("user.%s.TShirts",getRoutePrefix());
+       $this->bladePathDir = sprintf("user.%s",getRoutePrefix());
     }
 
     function index(){
@@ -33,11 +34,12 @@ values($k,$v,now(),now());\r\n",FILE_APPEND);
         return view('user.user_dashboard');
     }
     function allTShirts(){
-        return view($this->bladePath,["t_shirts"=>$this->repository->all()]);
+        //dd(getBladePath());
+        return view($this->bladePathDir.".t-shirts",["t_shirts"=>$this->repository->all()]);
     }
     function getTShirt(Model $model){
-        dd($this->repository->find($model));
+        return view($this->bladePathDir.".product_article",["t_shirt"=>$this->repository->find($model)]);
     }
     protected $repository;
-    protected $bladePath;
+    protected $bladePathDir;
 }

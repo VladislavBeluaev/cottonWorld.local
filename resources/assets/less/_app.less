@@ -37,7 +37,7 @@ input[type=number] {
   text-transform: uppercase;
   font-weight: 600;
   font-family: @baseFontFamily;
-  p:first-child{
+  p{
     a {
       color: #4f4f4f;
       text-decoration: none;
@@ -155,9 +155,10 @@ input {
   border: 2px solid #bb9393;
 }
 
+
 .checkbox-button__label {
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 400;
   font-family: @baseFontFamily;
@@ -442,6 +443,33 @@ input.form-control:focus {
   background-color: #505050;
 }
 
+/*Products article start*/
+.product_article__container{
+  .f-between-start;
+  margin-top: 30px;
+  border-top: 1px solid #e5e5e5;
+
+}
+.article__container__image{
+  >p{
+    .default-padding;
+  }
+}
+.article__container__description{
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  >h1{
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #000;
+  }
+}
+
+
+
+
+
+
+
 /*Media queries */
 @media (min-width: 992px) and (max-width: 1376px) {
   .container {
@@ -659,7 +687,7 @@ input.form-control:focus {
   .filter-group__mobileWrapper{
     width: 100%;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    padding: 14px 20px;
+    .default-padding
   }
   .filter-group__mobileWrapper h4{
     font-size: 18px;

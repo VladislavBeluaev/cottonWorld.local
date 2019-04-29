@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
             list($collectionImages,$attrType)=explode(',',$expression);
             $modelProperty = str_replace('"','',sprintf("img_%s",$attrType));
             $callString = "($collectionImages)->first()->$modelProperty";
+            //dd(asset(($collectionImages)->last()->$modelProperty));
             if($attrType=='"src"') $callString = "asset(($collectionImages)->first()->$modelProperty)";
             return "<?php echo $callString ?>";
         });
