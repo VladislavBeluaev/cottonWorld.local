@@ -353,7 +353,7 @@ input.form-control:focus {
   margin-top: 12px;
 }
 .product_name {
-  height: 48px;
+  /*height: 48px;*/
 }
 .product_name p {
   text-align: center;
@@ -371,7 +371,6 @@ input.form-control:focus {
   color: #000666;
 }
 .product_density {
-  margin-top: 4px;
   margin-right: 8px;
 }
 .product_density p {
@@ -382,7 +381,10 @@ input.form-control:focus {
 }
 .product_img img {
   width: auto;
-  height: 180px;
+  height: 200px;
+}
+.product_img > p {
+  text-align: center;
 }
 .product_price {
   height: 50px;
@@ -521,7 +523,8 @@ input.form-control:focus {
     font-size: 19px;
   }
   .product_name {
-    height: 48px;
+    margin-bottom: 4px;
+    /*height: 48px;*/
   }
   .sort-by > div:first-child {
     font-size: 0.7rem;
@@ -537,37 +540,52 @@ input.form-control:focus {
 }
 @media (min-width: 1165px) and (max-width: 1376px) {
   .product_name {
-    height: 24px;
+    /*height: 24px;*/
   }
 }
-@media (min-width: 1036px) and (max-width: 1124px) {
-  .product_img img {
-    height: 165px;
+/*@media (min-width: 1036px) and (max-width: 1124px) {
+  .product_img {
+    img{
+      height: 165px;
+    }
   }
 }
-@media (min-width: 992px) and (max-width: 1035px) {
-  .product_img img {
-    height: 155px;
+@media (min-width: 992px) and (max-width: 1035px){
+  .product_img {
+    img{
+      height: 155px;
+    }
   }
-}
+}*/
 @media (min-width: 992px) and (max-width: 1300px) {
   .aside-container .input-group {
     width: 95%;
   }
 }
-@media (min-width: 637px) and (max-width: 676px) {
-  .product_img img {
-    height: 140px;
+/*@media (min-width:637px) and (max-width: 676px){
+  .product_img{
+    img{
+      height: 140px;
+    }
   }
 }
-@media (min-width: 675px) and (max-width: 802px) {
-  .product_img img {
-    height: 150px;
+
+@media (min-width:675px) and (max-width: 802px){
+  .product_img{
+    img{
+      height: 150px;
+    }
   }
-}
+}*/
 @media (min-width: 830px) and (max-width: 991px) {
   .product_name {
-    height: 24px;
+    /*height: 24px;*/
+  }
+}
+/*Под вопросом*/
+@media (min-width: 1240px) {
+  .product_name {
+    /*height: 24px;*/
   }
 }
 @media (max-width: 991px) {
@@ -663,11 +681,13 @@ input.form-control:focus {
     font-size: 10px;
   }
 }
-@media (max-width: 636px) {
-  .product_img img {
-    height: 130px;
+/*@media (max-width: 636px) {
+  .product_img{
+    img{
+      height: 130px;
+    }
   }
-}
+}*/
 @media (max-width: 991px) {
   .container {
     width: 100%;

@@ -1,22 +1,19 @@
+import {ProductsCard} from './components/classes/productsCard.class.js';
+(function($,undefined){
+    $(function () {
+        let pathInfo = window.location.pathname.substr(1);
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+        switch (pathInfo){
+            case "men/t-shirts":
+                (new ProductsCard(
+                    {
+                        "productCard":"products_card",
+                        "productName":"product_name"
+                    }
+                )).run();
+        }
+        $(window).resize(function () {
+            console.log($('.product_name').height());
+        });
+    });
+})(jQuery);
