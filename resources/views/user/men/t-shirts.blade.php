@@ -160,14 +160,14 @@
                             <div class="products_card col-4">
                                 <div class="product_name">
                                     <p>
-                                        <a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
+                                        <a href="@productLink(route('user.man_t_shirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
                                     </p>
                                 </div>
                                 <div class="product_density">
                                     <p>{{$t_shirt->density}}</p>
                                 </div>
                                 <div class="product_img">
-                                    <p><a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">
+                                    <p><a href="@productLink(route('user.man_t_shirts'),$t_shirt->routeKeyName)">
                                             <img src="@headerImg($t_shirt->images,"src")"
                                                  alt="@headerImg($t_shirt->images,"alt")">
                                         </a></p>

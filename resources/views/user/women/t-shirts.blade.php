@@ -1,5 +1,5 @@
 @extends('user.layouts.app_user')
-@section('pageTitle', 'Мужские футболки оптом от производителя')
+@section('pageTitle', 'Женские футболки оптом от производителя')
 @section('content')
     <section class="menTShirts">
         <div class="container pt-4">
@@ -7,7 +7,7 @@
                 <nav class="breadcrumbs">
                     <p><a href="{{route('user.index')}}">Главная</a></p>
                     <p><span class="fas fa-angle-right"></span></p>
-                    <p><a href=""></a>Мужские футболки</p>
+                    <p><a href=""></a>Женские футболки</p>
                 </nav>
             </div>
             <div class="collection-container d-flex justify-content-between align-items-start">
@@ -156,38 +156,45 @@
                     <div class="products-container__cards">
                         <div class="row no-margins">
                             @foreach($t_shirts as $t_shirt)
-                            <div class="products_card col-4">
-                                <div class="product_name">
-                                    <p>
-                                        <a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
-                                    </p>
-                                </div>
-                                <div class="product_density">
-                                    <p>{{$t_shirt->density}}</p>
-                                </div>
-                                <div class="product_img">
-                                    <p><a href="@productLink(route('user.t_shirts'),$t_shirt->routeKeyName)">
-                                            <img src="@headerImg($t_shirt->images,"src")"
-                                                 alt="@headerImg($t_shirt->images,"alt")">
-                                        </a></p>
-                                    <div class="product_price">
-                                        <span class="product_price__text">{{$t_shirt->price}}</span>
+                                <div class="products_card col-4">
+                                    <div class="product_name">
+                                        <p>
+                                            <a href="@productLink(route('user.woman_t_shirts'),$t_shirt->routeKeyName)">{{$t_shirt->name}}</a>
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="product_available-colors">
-                                    <div class="colors-box">
-                                        @foreach($t_shirt->colors as $color)
-                                        <div class="color color-{{$color->en_name}}"></div>
+                                    <div class="product_density">
+                                        <p>{{$t_shirt->density}}</p>
+                                    </div>
+                                    <div class="product_img">
+                                        @if(count($t_shirt->images)===0)
+                                            <p><a href="@productLink(route('user.woman_t_shirts'),$t_shirt->routeKeyName)">
+                                                    <img src="{{asset('images/image_not_found.PNG')}}"
+                                                         alt="image_not_found">
+                                                </a></p>
+                                       @else
+                                        <p><a href="@productLink(route('user.woman_t_shirts'),$t_shirt->routeKeyName)">
+                                                <img src="@headerImg($t_shirt->images,"src")"
+                                                     alt="@headerImg($t_shirt->images,"alt")">
+                                            </a></p>
+                                        @endif
+                                        <div class="product_price">
+                                            <span class="product_price__text">{{$t_shirt->price}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="product_available-colors">
+                                        <div class="colors-box">
+                                            @foreach($t_shirt->colors as $color)
+                                                <div class="color color-{{$color->en_name}}"></div>
                                             @endforeach
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection

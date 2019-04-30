@@ -74,16 +74,46 @@ CREATE TABLE IF NOT EXISTS `images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.images: ~5 rows (приблизительно)
+-- Дамп данных таблицы cottonWorld.images: ~11 rows (приблизительно)
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
 INSERT INTO `images` (`id`, `img_src`, `img_alt`, `created_at`, `updated_at`) VALUES
-	(1, 'images/men/t_shirts/1555783437.jpg', 'promo-futbolka_econom', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
-	(2, 'images/men/t_shirts/1555783464.jpg', 'promo-futbolka_classic', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
-	(3, 'images/men/t_shirts/1555783482.jpg', 'futbolka-long_sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
-	(4, 'images/men/t_shirts/1555783498.jpg', 'polo-short_sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
-	(5, 'images/men/t_shirts/1555783543.jpg', 'polo-long-sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39');
+	(1, 'images/men/t_shirts/promo-futbolka_econom/1555783437.jpg', 'promo-futbolka_econom', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
+	(2, 'images/men/t_shirts/promo-futbolka_classic/1555783464.jpg', 'promo-futbolka_classic', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
+	(3, 'images/men/t_shirts/futbolka-long_sleeve/1555783482.jpg', 'futbolka-long_sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
+	(4, 'images/men/t_shirts/polo-short_sleeve/1555783498.jpg', 'polo-short_sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
+	(5, 'images/men/t_shirts/polo-long-sleeve/1555783543.jpg', 'polo-long-sleeve', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
+	(6, 'images/men/t_shirts/promo-futbolka_econom/1556530722.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(7, 'images/men/t_shirts/promo-futbolka_econom/1556530748.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(8, 'images/men/t_shirts/promo-futbolka_econom/1556530760.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(9, 'images/men/t_shirts/promo-futbolka_econom/1556530770.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(10, 'images/men/t_shirts/promo-futbolka_econom/1556530780.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(11, 'images/men/t_shirts/promo-futbolka_econom/1556530792.jpg', 'promo-futbolka_econom', '2019-04-29 12:44:09', '2019-04-29 12:44:09'),
+	(12, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556567586.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(13, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568035.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(14, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568052.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(15, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568071.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(16, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568084.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(17, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568094.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(18, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568106.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(19, 'images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568118.jpg', 'promo-futbolka_cotton_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(20, 'images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568512.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(21, 'images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568527.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(22, 'images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568542.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(23, 'images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568552.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(24, 'images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568562.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(25, 'images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568571.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(26, 'images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568581.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(27, 'images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568592.jpg', 'promo-futbolka_ lycra_short_sleeve', '2019-04-30 09:27:47', '2019-04-30 09:27:47'),
+	(28, 'images/women/t_shirts/promo-futbolka_lycra_long_sleeve/1556568750.jpg', 'promo-futbolka_lycra_long_sleeve', '2019-04-30 13:01:55', '2019-04-30 13:01:55'),
+	(29, 'images/women/t_shirts/promo-futbolka_lycra_long_sleeve/1556568763.jpg', 'promo-futbolka_lycra_long_sleeve', '2019-04-30 13:01:55', '2019-04-30 13:01:55'),
+	(30, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569001.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(31, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569013.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(32, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569023.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(33, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569038.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(34, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569048.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(35, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569058.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 
 -- Дамп структуры для таблица cottonWorld.material_quality
@@ -193,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `t_shirts` (
   CONSTRAINT `futbolki_material_quality_id_foreign` FOREIGN KEY (`material_quality_id`) REFERENCES `material_quality` (`id`) ON DELETE CASCADE,
   CONSTRAINT `futbolki_t_shirts_types_id_foreign` FOREIGN KEY (`t_shirts_types_id`) REFERENCES `t_shirts_types` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_shirts_t_shirt_sleeve_id_foreign` FOREIGN KEY (`t_shirt_sleeve_id`) REFERENCES `t_shirt_sleeve` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Дамп данных таблицы cottonWorld.t_shirts: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirts` DISABLE KEYS */;
@@ -202,7 +232,11 @@ INSERT INTO `t_shirts` (`id`, `name`, `routeKeyName`, `density`, `price`, `gende
 	(2, 'Промо футболки «Классик»', 'promo-futbolka_classic', '175-180 г/м2', '2,32', 1, 1, 2, 1, '2019-04-22 10:00:04', '2019-04-22 10:00:04'),
 	(3, 'Футболка с длинным рукавом', 'futbolka-longSleeve', '210-220 г/м2', '4,05', 1, 1, 3, 2, '2019-04-22 10:00:04', '2019-04-22 10:00:04'),
 	(4, 'Поло с коротким рукавом', 'polo-shortSleeve', '180-185 г/м2', '4,27', 1, 2, 2, 1, '2019-04-22 10:00:04', '2019-04-22 10:00:04'),
-	(5, 'Поло с длинным рукавом', 'polo-longSleeve', '180-185 г/м2', '5,05', 1, 2, 2, 2, '2019-04-22 10:00:04', '2019-04-22 10:00:04');
+	(5, 'Поло с длинным рукавом', 'polo-longSleeve', '180-185 г/м2', '5,05', 1, 2, 2, 2, '2019-04-22 10:00:04', '2019-04-22 10:00:04'),
+	(6, 'Промо футболка 100% хб (короткий рукав)', 'promo-futbolka_cotton_short_sleeve', '175-180 г/м2', '2,22', 2, 1, 1, 1, '2019-04-30 09:26:12', '2019-04-30 09:26:12'),
+	(7, 'Промо футболка с лайкрой (короткий рукав)', 'promo-futbolka_lycra_short_sleeve', '185-190 г/м2', '2,65', 2, 1, 2, 1, '2019-04-30 09:26:12', '2019-04-30 09:26:12'),
+	(8, 'Промо футболка с лайкрой (длинный рукав)', 'promo-futbolka_lycra_long_sleeve', '185-190 г/м2', '3,15', 2, 1, 2, 1, '2019-04-30 09:26:12', '2019-04-30 09:26:12'),
+	(9, 'Рубашка поло женская с коротким рукавом', 'polo_shirt_short_sleeve', '180-185 г/м2', '4,22', 2, 2, 2, 1, '2019-04-30 09:26:12', '2019-04-30 09:26:12');
 /*!40000 ALTER TABLE `t_shirts` ENABLE KEYS */;
 
 -- Дамп структуры для таблица cottonWorld.t_shirts_types
@@ -233,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `t_shirt_color` (
   KEY `t_shirt_color_color_id_foreign` (`color_id`),
   CONSTRAINT `t_shirt_color_color_id_foreign` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_shirt_color_t_shirt_id_foreign` FOREIGN KEY (`t_shirt_id`) REFERENCES `t_shirts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Дамп данных таблицы cottonWorld.t_shirt_color: ~50 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirt_color` DISABLE KEYS */;
@@ -287,7 +321,30 @@ INSERT INTO `t_shirt_color` (`id`, `t_shirt_id`, `color_id`, `created_at`, `upda
 	(47, 4, 15, '2019-04-22 10:40:10', '2019-04-22 10:40:10'),
 	(48, 4, 16, '2019-04-22 10:40:10', '2019-04-22 10:40:10'),
 	(49, 5, 1, '2019-04-22 10:40:10', '2019-04-22 10:40:10'),
-	(50, 5, 13, '2019-04-22 10:40:10', '2019-04-22 10:40:10');
+	(50, 5, 13, '2019-04-22 10:40:10', '2019-04-22 10:40:10'),
+	(51, 6, 1, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(52, 6, 2, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(53, 6, 8, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(54, 6, 12, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(55, 6, 13, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(56, 6, 14, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(57, 6, 15, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(58, 7, 1, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(59, 7, 2, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(60, 7, 5, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(61, 7, 7, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(62, 7, 8, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(63, 7, 12, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(64, 7, 13, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(65, 7, 15, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(66, 8, 1, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(67, 8, 15, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(68, 9, 1, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(69, 9, 2, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(70, 9, 7, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(71, 9, 8, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(72, 9, 13, '2019-04-30 09:48:49', '2019-04-30 09:48:49'),
+	(73, 9, 15, '2019-04-30 09:48:49', '2019-04-30 09:48:49');
 /*!40000 ALTER TABLE `t_shirt_color` ENABLE KEYS */;
 
 -- Дамп структуры для таблица cottonWorld.t_shirt_image
@@ -302,16 +359,46 @@ CREATE TABLE IF NOT EXISTS `t_shirt_image` (
   KEY `t_shirt_image_image_id_foreign` (`image_id`),
   CONSTRAINT `t_shirt_image_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_shirt_image_t_shirt_id_foreign` FOREIGN KEY (`t_shirt_id`) REFERENCES `t_shirts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirt_image: ~5 rows (приблизительно)
+-- Дамп данных таблицы cottonWorld.t_shirt_image: ~11 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirt_image` DISABLE KEYS */;
 INSERT INTO `t_shirt_image` (`id`, `t_shirt_id`, `image_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
 	(2, 2, 2, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
 	(3, 3, 3, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
 	(4, 4, 4, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
-	(5, 5, 5, '2019-04-22 10:01:01', '2019-04-22 10:01:01');
+	(5, 5, 5, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
+	(6, 1, 6, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(7, 1, 7, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(8, 1, 8, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(9, 1, 9, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(10, 1, 10, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(11, 1, 11, '2019-04-29 12:46:21', '2019-04-29 12:46:21'),
+	(12, 6, 12, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(13, 6, 13, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(14, 6, 14, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(15, 6, 15, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(16, 6, 16, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(17, 6, 17, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(18, 6, 18, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(19, 6, 19, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(20, 7, 20, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(21, 7, 21, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(22, 7, 22, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(23, 7, 23, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(24, 7, 24, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(25, 7, 25, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(26, 7, 26, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(27, 7, 27, '2019-04-30 09:46:40', '2019-04-30 09:46:40'),
+	(28, 8, 28, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(29, 8, 29, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(30, 9, 30, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(31, 9, 31, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(32, 9, 32, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(33, 9, 33, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(34, 9, 34, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(35, 9, 35, '2019-04-30 13:04:54', '2019-04-30 13:04:54');
 /*!40000 ALTER TABLE `t_shirt_image` ENABLE KEYS */;
 
 -- Дамп структуры для таблица cottonWorld.t_shirt_sleeve

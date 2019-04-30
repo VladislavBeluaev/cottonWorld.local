@@ -32,7 +32,7 @@ values($k,$v,now(),now());\r\n",FILE_APPEND);
         return view('user.user_dashboard');
     }
     function allTShirts(){
-        //dd(getBladePath());
+        //dd($this->repository->all());
         return view($this->bladePathDir.".t-shirts",["t_shirts"=>$this->repository->all()]);
     }
     function getTShirt(Model $model){

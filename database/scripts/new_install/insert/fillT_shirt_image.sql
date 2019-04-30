@@ -28,7 +28,7 @@ values(5,5,now(),now());
 
 
 
---women
+/*women*/
 
 INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
 values(6,12,now(),now());
@@ -56,7 +56,7 @@ values(6,19,now(),now());
 
 
 
---lycra_shortt sleeve
+/*lycra_shortt sleeve*/
 
 
 INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
@@ -82,3 +82,29 @@ values(7,26,now(),now());
 
 INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
 values(7,27,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(8,28,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(8,29,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,30,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,31,now(),now());
+
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,32,now(),now());
+
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,33,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,34,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,35,now(),now());

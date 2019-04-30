@@ -7,9 +7,9 @@
                 <nav class="breadcrumbs">
                     <p><a href="{{route('user.index')}}">Главная</a></p>
                     <p><span class="fas fa-angle-right"></span></p>
-                    <p><a href="{{route('user.t_shirts')}}">Мужские футболки</a></p>
+                    <p><a href="{{route('user.man_t_shirts')}}">Мужские футболки</a></p>
                     <p><span class="fas fa-angle-right"></span></p>
-                    <p><a href="{{route('user.t_shirts')}}"></a>{{$t_shirt->name}}</p>
+                    <p><a href="{{route('user.man_t_shirts')}}"></a>{{$t_shirt->name}}</p>
                 </nav>
             </div>
             <div class="product_article__container">

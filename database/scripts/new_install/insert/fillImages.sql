@@ -14,7 +14,7 @@ INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images
 INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/men/t_shirts/polo-long-sleeve/1555783543.jpg','polo-long-sleeve',now(),now());
 
 
---women img
+/*women img*/
 
 INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556567586.jpg','promo-futbolka_cotton_short_sleeve',now(),now());
 
@@ -33,22 +33,41 @@ INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images
 INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_cotton_short_sleeve/1556568118.jpg','promo-futbolka_cotton_short_sleeve',now(),now());
 
 
---c lycra short sleeve
+/*lycra short sleeve*/
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568512.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568512.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568527.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568527.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568542.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568542.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568552.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568552.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568562.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568562.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568571.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568571.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568581.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568581.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
 
-INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_ lycra_short_sleeve/1556568592.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_short_sleeve/1556568592.jpg','promo-futbolka_ lycra_short_sleeve',now(),now());
+
+/*lycra long sleeve*/
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_long_sleeve/1556568750.jpg','promo-futbolka_lycra_long_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/promo-futbolka_lycra_long_sleeve/1556568763.jpg','promo-futbolka_lycra_long_sleeve',now(),now());
+
+/*polo_shirt_short_sleeve*/
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569001.jpg','polo_shirt_short_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569013.jpg','polo_shirt_short_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569023.jpg','polo_shirt_short_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569038.jpg','polo_shirt_short_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569048.jpg','polo_shirt_short_sleeve',now(),now());
+
+INSERT INTO images(`img_src`,`img_alt`,`created_at`,`updated_at`) values('images/women/t_shirts/polo_shirt_short_sleeve/1556569058.jpg','polo_shirt_short_sleeve',now(),now());
 
 

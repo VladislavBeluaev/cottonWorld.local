@@ -14,15 +14,15 @@ INSERT INTO t_shirts(`name`,`routeKeyName`,`density`,`price`,`gender_id`,`t_shir
                      `created_at`,`updated_at`) values('Поло с длинным рукавом','polo-longSleeve','180-185 г/м2','5,05',1,2,2,2,now(),now());
 
 
-                     --women insert--
+/*women insert*/
 INSERT INTO t_shirts(`name`,`routeKeyName`,`density`,`price`,`gender_id`,`t_shirts_types_id`,`material_quality_id`,`t_shirt_sleeve_id`,
-                     `created_at`,`updated_at`) values('Промо футболка 100% хб (короткий рукав)','polo_shirt_ short_sleeve','175-180 г/м2','2,22',2,1,1,1,now(),now());
+                     `created_at`,`updated_at`) values('Промо футболка 100% хб (короткий рукав)','promo-futbolka_cotton_short_sleeve','175-180 г/м2','2,22',2,1,1,1,now(),now());
 
 INSERT INTO t_shirts(`name`,`routeKeyName`,`density`,`price`,`gender_id`,`t_shirts_types_id`,`material_quality_id`,`t_shirt_sleeve_id`,
-                     `created_at`,`updated_at`) values('Промо футболка с лайкрой (короткий рукав)','promo-futbolka_cotton_short_sleeve','185-190 г/м2','2,65',2,1,2,1,now(),now());
+                     `created_at`,`updated_at`) values('Промо футболка с лайкрой (короткий рукав)','promo-futbolka_lycra_short_sleeve','185-190 г/м2','2,65',2,1,2,1,now(),now());
 
 INSERT INTO t_shirts(`name`,`routeKeyName`,`density`,`price`,`gender_id`,`t_shirts_types_id`,`material_quality_id`,`t_shirt_sleeve_id`,
-                     `created_at`,`updated_at`) values('Промо футболка с лайкрой (длинный рукав)','promo-futbolka_ lycra_long_sleeve','185-190 г/м2','3,15',2,1,2,1,now(),now());
+                     `created_at`,`updated_at`) values('Промо футболка с лайкрой (длинный рукав)','promo-futbolka_lycra_long_sleeve','185-190 г/м2','3,15',2,1,2,1,now(),now());
 
 INSERT INTO t_shirts(`name`,`routeKeyName`,`density`,`price`,`gender_id`,`t_shirts_types_id`,`material_quality_id`,`t_shirt_sleeve_id`,
-                     `created_at`,`updated_at`) values('Рубашка поло женская с коротким рукавом','polo_shirt_ short_sleeve','180-185 г/м2','4,22',2,2,2,1,now(),now());
+                     `created_at`,`updated_at`) values('Рубашка поло женская с коротким рукавом','polo_shirt_short_sleeve','180-185 г/м2','4,22',2,2,2,1,now(),now());

@@ -13,8 +13,12 @@
 
 Route::group(['namespace'=>'User',],function(){
     Route::group(['prefix'=>'men'],function (){
-        Route::get('t-shirts','DashboardController@allTShirts')->name('user.t_shirts');
-        Route::get('t-shirts/{model}','DashboardController@getTShirt')->name('user.getTShirt');
+        Route::get('t-shirts','DashboardController@allTShirts')->name('user.man_t_shirts');
+        Route::get('t-shirts/{model}','DashboardController@getTShirt')->name('user.man_getTShirt');
+    });
+    Route::group(['prefix'=>'women'],function (){
+        Route::get('t-shirts','DashboardController@allTShirts')->name('user.woman_t_shirts');
+        Route::get('t-shirts/{model}','DashboardController@getTShirt')->name('user.woman_getTShirt');
     });
     Route::get('/','DashboardController@index')->name('user.index');
 });
