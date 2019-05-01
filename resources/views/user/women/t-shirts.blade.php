@@ -73,7 +73,7 @@
                 </div>
                 <div class="products-container">
                     <div class="products-container__header">
-                        <h1>Футболки для мужчин от производителя</h1>
+                        <h1>Футболки для женщин от производителя</h1>
                         <div class="sort-by">
                             <div><span>Сортировать по:</span></div>
                             <div class="dropdown_menu">

@@ -8,7 +8,6 @@
                     <p><a href="{{route('user.index')}}">Главная</a></p>
                     <p><span class="fas fa-angle-right"></span></p>
                     <p><a href=""></a>Мужские футболки</p>
-                    <p><a href=""></a>{{time()}}</p>
                 </nav>
             </div>
             <div class="collection-container d-flex justify-content-between align-items-start">
