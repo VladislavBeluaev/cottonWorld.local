@@ -108,3 +108,29 @@ values(9,34,now(),now());
 
 INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
 values(9,35,now(),now());
+
+
+/*child_t-shirt*/
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(10,36,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,37,now(),now());
+
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,38,now(),now());
+
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,39,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,40,now(),now());
+
+INSERT INTO t_shirt_image(`t_shirt_id`,`image_id`,`created_at`,`updated_at`)
+values(9,41,now(),now());
+
+
+
