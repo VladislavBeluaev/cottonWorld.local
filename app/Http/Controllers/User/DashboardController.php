@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Interfaces\Repository;
 use App\Http\Controllers\Controller;
+use App\T_shirt;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -29,7 +31,8 @@ class DashboardController extends Controller
 values($k,$v,now(),now());\r\n",FILE_APPEND);
             }
         }*/
-        return view('user.user_dashboard');
+        $callProcedureStr = sprintf("call %s",Config::get('constants.options.procedures.cardSlider'));
+        return view('user.user_dashboard',['t_shirts'=>DB::select($callProcedureStr)]);
     }
     function allTShirts(){
         //dd($this->repository->all());

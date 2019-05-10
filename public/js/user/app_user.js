@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
@@ -78,21 +78,43 @@ module.exports = __webpack_require__(3);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_classes_productsCard_class_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_classes_Menu_class_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_classes_Slider_class_js__ = __webpack_require__(9);
+
+
 
 (function ($, undefined) {
     $(function () {
         var pathInfo = window.location.pathname.substr(1);
 
         switch (pathInfo) {
+            case "":
+                new __WEBPACK_IMPORTED_MODULE_1__components_classes_Menu_class_js__["a" /* Menu */]({
+                    "menuBar": "menubar-wrapper",
+                    "menuBarCatalog": "menubar-catalog"
+                }).run();
+                new __WEBPACK_IMPORTED_MODULE_2__components_classes_Slider_class_js__["a" /* Slider */]({
+                    slider: $('.cardsSlider'),
+                    duration: 500,
+                    countScroll: 1,
+                    navigate: {
+                        buttonNext: 'next_btn',
+                        buttonPrev: 'prev_btn',
+                        productCartLinkClass: 'toProductCart',
+                        relativeTo: '.card a>img',
+                        positioningElement: '.next_btn,.prev_btn',
+                        position: 'middle',
+                        offset: {
+                            '.card a>img': 'paddingTop'
+                        }
+                    }
+                }).start();
             case "men/t-shirts":
                 new __WEBPACK_IMPORTED_MODULE_0__components_classes_productsCard_class_js__["a" /* ProductsCard */]({
                     "productCard": "products_card",
                     "productName": "product_name"
                 }).run();
         }
-        $(window).resize(function () {
-            console.log($('.product_name').height());
-        });
     });
 })(jQuery);
 
@@ -147,9 +169,224 @@ var ProductsCard = function () {
 
 /***/ }),
 /* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Menu; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by isida on 07.05.2019.
+ */
+
+var Menu = function () {
+    function Menu(menuComponents) {
+        _classCallCheck(this, Menu);
+
+        this._menuBar = $('.' + menuComponents.menuBar);
+        this._menuBarCatalog = $('.' + menuComponents.menuBarCatalog);
+        this._widthControlHandler();
+    }
+
+    _createClass(Menu, [{
+        key: 'run',
+        value: function run() {
+            $(window).on('resize.Menu', $.proxy(this._widthControlHandler, this));
+        }
+    }, {
+        key: '_widthControlHandler',
+        value: function _widthControlHandler() {
+            var currentMenuBarCatalogWidth = this._menuBarCatalog.width();
+            this._menuBar.css('width', currentMenuBarCatalogWidth + 'px');
+        }
+    }]);
+
+    return Menu;
+}();
+
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Slider; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by Dragon on 21.12.2018.
+ */
+var Slider = function () {
+    function Slider(sliderOptions) {
+        _classCallCheck(this, Slider);
+
+        this._carousel$ = sliderOptions.slider;
+        this._duration = sliderOptions.duration;
+        this._countScroll = sliderOptions.countScroll;
+        this._searchContext = this._getContext(this._carousel$);
+        this._navigateOpts = sliderOptions.navigate;
+        this._controlTopNavigatePosition(this._navigateOpts);
+        this._carouselContent$ = this._carousel$.children().filter(':first-child');
+        this._carouselContent$.data('countScrollCards', 0);
+        this._maxScrollCards = (this._carouselContent$.children().length - 4) / this._countScroll;
+        //this._productsLinkClass = sliderOptions.productCartLinkClass;
+    }
+
+    _createClass(Slider, [{
+        key: 'start',
+        value: function start() {
+            var self = this;
+            this._carousel$.click(function (e) {
+                if ($(':animated').length) {
+                    return false;
+                }
+                self._adaptiveOffset();
+                var target = e.target;
+                var nextClass = self._navigateOpts.buttonNext;
+                var prevClass = self._navigateOpts.buttonPrev;
+                var productsLink$ = $(target).closest('.' + self._navigateOpts.productCartLinkClass);
+                if (productsLink$.length !== 0) window.location.href = productsLink$.attr('href');
+
+                var navLinks = $(target.closest('div')).filter(function (_, elem) {
+                    return elem.classList[0] == nextClass || elem.classList[0] == prevClass;
+                });
+                if (navLinks.length === 0) return false;
+
+                if (false === Slider._notDisabled(navLinks)) return false;
+
+                if (navLinks.hasClass(nextClass)) {
+                    self._slide('left', self._duration);
+                } else if (navLinks.hasClass(prevClass)) {
+                    self._slide('right', self._duration);
+                } else return false;
+            });
+        }
+    }, {
+        key: '_slide',
+        value: function _slide(direction, duration) {
+            var cardWidth = this._cardWidth();
+            var offset = 0;
+            var scrollSlide = this._scrollSlide.bind(this, direction);this._countScroll;
+            if (direction === 'left') offset = this._sliderOffset() - this._countScroll * cardWidth + 'px';
+            if (direction === 'right') offset = this._sliderOffset() + this._countScroll * cardWidth + 'px';
+            this._carouselContent$.animate({
+                "left": offset
+            }, duration, /*"easeOutBounce",*/scrollSlide);
+        }
+    }, {
+        key: '_scrollSlide',
+        value: function _scrollSlide(direction) {
+            var countScrollCards = this._carouselContent$.data('countScrollCards');
+            if (direction === 'left') {
+                this._carouselContent$.data('countScrollCards', ++countScrollCards);
+            }
+            if (direction === 'right') {
+                this._carouselContent$.data('countScrollCards', --countScrollCards);
+            }
+            this._activeButton();
+        }
+    }, {
+        key: '_activeButton',
+        value: function _activeButton() {
+            var next = $('.' + this._navigateOpts.buttonNext, this._searchContext);
+            var prev = $('.' + this._navigateOpts.buttonPrev, this._searchContext);
+            parseInt(this._carouselContent$.data('countScrollCards')) === this._maxScrollCards ? Slider.replaceClass(next, 'active', 'nonActive') : Slider.replaceClass(next, 'nonActive', 'active');
+
+            parseInt(this._carouselContent$.data('countScrollCards')) !== 0 ? Slider.replaceClass(prev, 'nonActive', 'active') : Slider.replaceClass(prev, 'active', 'nonActive');
+        }
+    }, {
+        key: '_adaptiveOffset',
+        value: function _adaptiveOffset() {
+            this._carouselContent$.data('currentWidth', this._cardWidth());
+            $(window).on('resize', this._navigateOpts, $.proxy(this._resizeWindow, this));
+        }
+    }, {
+        key: '_controlTopNavigatePosition',
+        value: function _controlTopNavigatePosition(event) {
+            var opts = event.data === undefined ? event : event.data;
+            var relativeTo = $(opts.relativeTo, this._searchContext);
+            var relativeToHeight = relativeTo.height();
+            var positioningElement = $(opts.positioningElement, this._searchContext);
+            var positioningElementHeight = positioningElement.outerHeight();
+            var offset = 0;
+            if (!$.isEmptyObject(opts.offset)) {
+                var offsetKey = Object.keys(opts.offset)[0];
+                var offsetValue = opts.offset[offsetKey];
+                offset = $(offsetKey, this._searchContext).css(offsetValue);
+            }
+            switch (opts.position) {
+                case "middle":
+                    positioningElement.css('top', relativeToHeight / 2 - positioningElementHeight / 2 + parseInt(offset) + 'px');
+                    break;
+                case "bottom":
+                    positioningElement.css('top', relativeToHeight - positioningElementHeight - parseInt(offset) + 'px');
+                    break;
+            }
+        }
+    }, {
+        key: '_resizeWindow',
+        value: function _resizeWindow(options) {
+            var resizeCardWidth = this._cardWidth();
+            if (this._carouselContent$.data('currentWidth') !== resizeCardWidth) {
+                var countHideSlide = Math.round(this._sliderOffset() / this._carouselContent$.data('currentWidth'));
+                this._carouselContent$.css("left", resizeCardWidth * countHideSlide + 'px');
+                this._carouselContent$.data('currentWidth', resizeCardWidth);
+            }
+            this._controlTopNavigatePosition(options);
+        }
+    }, {
+        key: '_cardWidth',
+        value: function _cardWidth() {
+            return this._carouselContent$.children().filter(':first-child').outerWidth(true);
+        }
+    }, {
+        key: '_sliderOffset',
+        value: function _sliderOffset() {
+            return parseFloat(this._carouselContent$.css('left'));
+        }
+    }, {
+        key: '_getContext',
+        value: function _getContext(element) {
+            var domElement = element[0];
+            while (domElement.parentNode !== document.documentElement) {
+                if (domElement.parentNode === document.body) {
+                    break;
+                }
+                domElement = domElement.parentNode;
+            }
+            return domElement;
+        }
+    }], [{
+        key: '_notDisabled',
+        value: function _notDisabled(button) {
+            return !button.hasClass('nonActive');
+        }
+    }, {
+        key: 'replaceClass',
+        value: function replaceClass(element, search, replace) {
+            element.removeClass(search).addClass(replace);
+        }
+    }]);
+
+    return Slider;
+}();
+
+
 
 /***/ })
 /******/ ]);

@@ -15,6 +15,8 @@
     <script src="{{asset('js/user/app_user.js')}}" type="module"></script>
 </head>
 <body>
+@include('user.layouts.header')
 @yield('content')
+@include('user.layouts.footer')
 </body>
 </html>

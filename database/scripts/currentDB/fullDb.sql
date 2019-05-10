@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Дамп структуры базы данных cottonWorld
-CREATE DATABASE IF NOT EXISTS `cottonWorld` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `cottonWorld`;
+-- Дамп структуры базы данных cottonworld
+CREATE DATABASE IF NOT EXISTS `cottonworld` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `cottonworld`;
 
--- Дамп структуры для таблица cottonWorld.colors
+-- Дамп структуры для таблица cottonworld.colors
 CREATE TABLE IF NOT EXISTS `colors` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `en_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `colors` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.colors: ~16 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.colors: ~16 rows (приблизительно)
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
 INSERT INTO `colors` (`id`, `en_name`, `rus_name`, `created_at`, `updated_at`) VALUES
 	(1, 'white', 'белый', '2019-04-22 09:59:22', '2019-04-22 09:59:22'),
@@ -47,7 +47,7 @@ INSERT INTO `colors` (`id`, `en_name`, `rus_name`, `created_at`, `updated_at`) V
 	(16, 'asphalt', 'асфальт', '2019-04-22 09:59:22', '2019-04-22 09:59:22');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.gender
+-- Дамп структуры для таблица cottonworld.gender
 CREATE TABLE IF NOT EXISTS `gender` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `en_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `gender` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.gender: ~3 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.gender: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `gender` DISABLE KEYS */;
 INSERT INTO `gender` (`id`, `en_description`, `rus_description`, `url_prefix`, `created_at`, `updated_at`) VALUES
 	(1, 'male', 'мужские', 'men', '2019-04-22 09:58:30', '2019-04-22 09:58:30'),
@@ -66,7 +66,29 @@ INSERT INTO `gender` (`id`, `en_description`, `rus_description`, `url_prefix`, `
 	(3, 'children', 'детские', 'children', '2019-04-22 09:58:30', '2019-04-22 09:58:30');
 /*!40000 ALTER TABLE `gender` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.images
+-- Дамп структуры для процедура cottonworld.getAllTv
+DELIMITER //
+CREATE DEFINER=`root`@`%` PROCEDURE `getAllTv`()
+    DETERMINISTIC
+    COMMENT 'return products data for CardSlider on index page'
+BEGIN
+   select name,price,img_src from t_shirts t join t_shirt_image
+   t_s on t_s.t_shirt_id = t.id join images i on t_s.image_id = i.id order by rand() limit 8;
+END//
+DELIMITER ;
+
+-- Дамп структуры для процедура cottonworld.getProductsForSliderMainPage
+DELIMITER //
+CREATE DEFINER=`root`@`%` PROCEDURE `getProductsForSliderMainPage`()
+    DETERMINISTIC
+    COMMENT 'return products data for CardSlider on index page'
+BEGIN
+   select name,price,img_src,img_alt,routeKeyName,url_prefix from t_shirts t join gender g on g.id=t.gender_id join t_shirt_image
+   t_s on t_s.t_shirt_id = t.id join images i on t_s.image_id = i.id order by rand() limit 8;
+END//
+DELIMITER ;
+
+-- Дамп структуры для таблица cottonworld.images
 CREATE TABLE IF NOT EXISTS `images` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `img_src` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -74,9 +96,9 @@ CREATE TABLE IF NOT EXISTS `images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.images: ~35 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.images: ~74 rows (приблизительно)
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
 INSERT INTO `images` (`id`, `img_src`, `img_alt`, `created_at`, `updated_at`) VALUES
 	(1, 'images/men/t_shirts/promo-futbolka_econom/1555783437.jpg', 'promo-futbolka_econom', '2019-04-22 09:59:39', '2019-04-22 09:59:39'),
@@ -113,10 +135,49 @@ INSERT INTO `images` (`id`, `img_src`, `img_alt`, `created_at`, `updated_at`) VA
 	(32, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569023.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
 	(33, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569038.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
 	(34, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569048.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
-	(35, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569058.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02');
+	(35, 'images/women/t_shirts/polo_shirt_short_sleeve/1556569058.jpg', 'polo_shirt_short_sleeve', '2019-04-30 13:03:02', '2019-04-30 13:03:02'),
+	(36, 'images/men/t_shirts/futbolka-long_sleeve/1555783483.jpg', 'futbolka-long_sleeve', '2019-05-03 22:33:11', '2019-05-03 22:33:11'),
+	(37, 'images/men/t_shirts/futbolka-long_sleeve/1555783484.jpg', 'futbolka-long_sleeve', '2019-05-03 22:33:11', '2019-05-03 22:33:11'),
+	(38, 'images/men/t_shirts/futbolka-long_sleeve/1555783485.jpg', 'futbolka-long_sleeve', '2019-05-03 22:33:11', '2019-05-03 22:33:11'),
+	(39, 'images/men/t_shirts/futbolka-long_sleeve/1555783483.jpg', 'futbolka-long_sleeve', '2019-05-03 22:38:27', '2019-05-03 22:38:27'),
+	(40, 'images/men/t_shirts/futbolka-long_sleeve/1555783484.jpg', 'futbolka-long_sleeve', '2019-05-03 22:38:27', '2019-05-03 22:38:27'),
+	(41, 'images/men/t_shirts/futbolka-long_sleeve/1555783485.jpg', 'futbolka-long_sleeve', '2019-05-03 22:38:27', '2019-05-03 22:38:27'),
+	(42, 'images/men/t_shirts/polo-long-sleeve/1555783544.jpg', 'polo-long-sleeve', '2019-05-03 23:16:07', '2019-05-03 23:16:07'),
+	(43, 'images/men/t_shirts/polo-long-sleeve/1555783544.jpg', 'polo-long-sleeve', '2019-05-03 23:16:11', '2019-05-03 23:16:11'),
+	(44, 'images/men/t_shirts/promo-futbolka_classic/1555783465.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(45, 'images/men/t_shirts/promo-futbolka_classic/1555783466.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(46, 'images/men/t_shirts/promo-futbolka_classic/1555783467.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(47, 'images/men/t_shirts/promo-futbolka_classic/1555783468.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(48, 'images/men/t_shirts/promo-futbolka_classic/1555783469.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(49, 'images/men/t_shirts/promo-futbolka_classic/1555783470.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(50, 'images/men/t_shirts/promo-futbolka_classic/1555783471.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(51, 'images/men/t_shirts/promo-futbolka_classic/1555783472.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(52, 'images/men/t_shirts/promo-futbolka_classic/1555783473.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(53, 'images/men/t_shirts/promo-futbolka_classic/1555783474.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(54, 'images/men/t_shirts/promo-futbolka_classic/1555783475.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(55, 'images/men/t_shirts/promo-futbolka_classic/1555783476.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(56, 'images/men/t_shirts/promo-futbolka_classic/1555783477.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(57, 'images/men/t_shirts/promo-futbolka_classic/1555783478.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(58, 'images/men/t_shirts/promo-futbolka_classic/1555783479.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(59, 'images/men/t_shirts/promo-futbolka_classic/1555783480.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(60, 'images/men/t_shirts/promo-futbolka_classic/1555783481.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(61, 'images/men/t_shirts/promo-futbolka_classic/1555783482.jpg', 'promo-futbolka_classic', '2019-05-06 10:32:49', '2019-05-06 10:32:49'),
+	(62, 'images/men/t_shirts/polo-short_sleeve/1555783499.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(63, 'images/men/t_shirts/polo-short_sleeve/1555783500.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(64, 'images/men/t_shirts/polo-short_sleeve/1555783501.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(65, 'images/men/t_shirts/polo-short_sleeve/1555783502.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(66, 'images/men/t_shirts/polo-short_sleeve/1555783503.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(67, 'images/men/t_shirts/polo-short_sleeve/1555783504.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(68, 'images/men/t_shirts/polo-short_sleeve/1555783505.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(69, 'images/men/t_shirts/polo-short_sleeve/1555783506.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(70, 'images/men/t_shirts/polo-short_sleeve/1555783507.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(71, 'images/men/t_shirts/polo-short_sleeve/1555783508.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(72, 'images/men/t_shirts/polo-short_sleeve/1555783509.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(73, 'images/men/t_shirts/polo-short_sleeve/1555783510.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08'),
+	(74, 'images/men/t_shirts/polo-short_sleeve/1555783511.jpg', 'polo-short_sleeve', '2019-05-06 10:34:08', '2019-05-06 10:34:08');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.material_quality
+-- Дамп структуры для таблица cottonworld.material_quality
 CREATE TABLE IF NOT EXISTS `material_quality` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -125,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `material_quality` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.material_quality: ~4 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.material_quality: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `material_quality` DISABLE KEYS */;
 INSERT INTO `material_quality` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'Эконом', '2019-04-22 09:58:46', '2019-04-22 09:58:46'),
@@ -134,7 +195,7 @@ INSERT INTO `material_quality` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(4, 'Акционные', '2019-04-22 09:58:47', '2019-04-22 09:58:47');
 /*!40000 ALTER TABLE `material_quality` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.migrations
+-- Дамп структуры для таблица cottonworld.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -142,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.migrations: ~19 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.migrations: ~21 rows (приблизительно)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -168,18 +229,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(22, '2019_04_30_130732_add_columns_material_and_composition_to_t_shirt_table', 6);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.password_resets
+-- Дамп структуры для таблица cottonworld.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.password_resets: ~0 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.password_resets: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.polo
+-- Дамп структуры для таблица cottonworld.polo
 CREATE TABLE IF NOT EXISTS `polo` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -199,11 +260,11 @@ CREATE TABLE IF NOT EXISTS `polo` (
   CONSTRAINT `polo_t_shirts_types_id_foreign` FOREIGN KEY (`t_shirts_types_id`) REFERENCES `t_shirts_types` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.polo: ~0 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.polo: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `polo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `polo` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.t_shirts
+-- Дамп структуры для таблица cottonworld.t_shirts
 CREATE TABLE IF NOT EXISTS `t_shirts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -230,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `t_shirts` (
   CONSTRAINT `t_shirts_t_shirt_sleeve_id_foreign` FOREIGN KEY (`t_shirt_sleeve_id`) REFERENCES `t_shirt_sleeve` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirts: ~9 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.t_shirts: ~9 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirts` DISABLE KEYS */;
 INSERT INTO `t_shirts` (`id`, `name`, `routeKeyName`, `description`, `material`, `composition`, `density`, `price`, `gender_id`, `t_shirts_types_id`, `material_quality_id`, `t_shirt_sleeve_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Промо футболка «Эконом»', 'promo-futbolka_econom', 'Новая линейка мужских и женских футболок из 100% кольцепряжильной пряжи Ne30/1 (Nm 51/1). Плотность материала выпускаемого вида футболок немного ниже, чем у стандартных футболки CR и составляет 150 г/м2.', 'Кулирная гладь', '100% кольцепрядильная пряжа Ne30/1 (Nm 51/1).', '150-155 г/м2', '2,08', 1, 1, 1, 1, '2019-04-22 10:00:04', '2019-04-22 10:00:04'),
@@ -244,7 +305,7 @@ INSERT INTO `t_shirts` (`id`, `name`, `routeKeyName`, `description`, `material`,
 	(9, 'Рубашка поло женская с коротким рукавом', 'polo_shirt_short_sleeve', 'Трикотажная Рубашка «Поло» женская приталенного покроя, с коротким втачным рукавом, отложным в резинку воротником и планкой с застежкой из двух или трех пуговиц в тон полотна. Росток обтачен бейкой из основного полотна. Низ изделия и рукава подогнуты и подшиты плоским швом. Боковые швы стачены на четырёхниточном оверлоке. Планка отстрочена на одноигольной машине челночного стежка. Ворот стачен на четырёхниточном оверлоке. Низ изделия и рукавов подогнут и прошит на трёхигольной плоскошовной машине. Петли пробиты на автоматической петельной машине челночного стежка.', 'Пике', '100% х/б. Кольцепрядильной кардной пряжи №е 30/1 на кругловязальных машинах итальянской марки "Orizio" 32 дюйм, 24 класс.', '180-185 г/м2', '4,22', 2, 2, 2, 1, '2019-04-30 09:26:12', '2019-04-30 09:26:12');
 /*!40000 ALTER TABLE `t_shirts` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.t_shirts_types
+-- Дамп структуры для таблица cottonworld.t_shirts_types
 CREATE TABLE IF NOT EXISTS `t_shirts_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -253,14 +314,14 @@ CREATE TABLE IF NOT EXISTS `t_shirts_types` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirts_types: ~2 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.t_shirts_types: ~2 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirts_types` DISABLE KEYS */;
 INSERT INTO `t_shirts_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'футблока', '2019-04-22 09:59:00', '2019-04-22 09:59:00'),
 	(2, 'поло', '2019-04-22 09:59:00', '2019-04-22 09:59:00');
 /*!40000 ALTER TABLE `t_shirts_types` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.t_shirt_color
+-- Дамп структуры для таблица cottonworld.t_shirt_color
 CREATE TABLE IF NOT EXISTS `t_shirt_color` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `t_shirt_id` int(10) unsigned NOT NULL,
@@ -274,7 +335,7 @@ CREATE TABLE IF NOT EXISTS `t_shirt_color` (
   CONSTRAINT `t_shirt_color_t_shirt_id_foreign` FOREIGN KEY (`t_shirt_id`) REFERENCES `t_shirts` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirt_color: ~73 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.t_shirt_color: ~73 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirt_color` DISABLE KEYS */;
 INSERT INTO `t_shirt_color` (`id`, `t_shirt_id`, `color_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, '2019-04-22 10:40:09', '2019-04-22 10:40:09'),
@@ -352,7 +413,7 @@ INSERT INTO `t_shirt_color` (`id`, `t_shirt_id`, `color_id`, `created_at`, `upda
 	(73, 9, 15, '2019-04-30 09:48:49', '2019-04-30 09:48:49');
 /*!40000 ALTER TABLE `t_shirt_color` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.t_shirt_image
+-- Дамп структуры для таблица cottonworld.t_shirt_image
 CREATE TABLE IF NOT EXISTS `t_shirt_image` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `t_shirt_id` int(10) unsigned NOT NULL,
@@ -364,9 +425,9 @@ CREATE TABLE IF NOT EXISTS `t_shirt_image` (
   KEY `t_shirt_image_image_id_foreign` (`image_id`),
   CONSTRAINT `t_shirt_image_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_shirt_image_t_shirt_id_foreign` FOREIGN KEY (`t_shirt_id`) REFERENCES `t_shirts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirt_image: ~35 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.t_shirt_image: ~74 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirt_image` DISABLE KEYS */;
 INSERT INTO `t_shirt_image` (`id`, `t_shirt_id`, `image_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, '2019-04-22 10:01:01', '2019-04-22 10:01:01'),
@@ -403,10 +464,49 @@ INSERT INTO `t_shirt_image` (`id`, `t_shirt_id`, `image_id`, `created_at`, `upda
 	(32, 9, 32, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
 	(33, 9, 33, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
 	(34, 9, 34, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
-	(35, 9, 35, '2019-04-30 13:04:54', '2019-04-30 13:04:54');
+	(35, 9, 35, '2019-04-30 13:04:54', '2019-04-30 13:04:54'),
+	(36, 3, 36, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(37, 3, 37, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(38, 3, 38, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(39, 3, 39, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(40, 3, 40, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(41, 3, 41, '2019-05-06 10:53:28', '2019-05-06 10:53:28'),
+	(42, 5, 42, '2019-05-06 10:57:08', '2019-05-06 10:57:08'),
+	(43, 5, 43, '2019-05-06 10:57:08', '2019-05-06 10:57:08'),
+	(44, 2, 44, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(45, 2, 45, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(46, 2, 46, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(47, 2, 47, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(48, 2, 48, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(49, 2, 49, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(50, 2, 50, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(51, 2, 51, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(52, 2, 52, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(53, 2, 53, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(54, 2, 54, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(55, 2, 55, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(56, 2, 56, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(57, 2, 57, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(58, 2, 58, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(59, 2, 59, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(60, 2, 60, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(61, 2, 61, '2019-05-06 11:01:57', '2019-05-06 11:01:57'),
+	(62, 4, 62, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(63, 4, 63, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(64, 4, 64, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(65, 4, 65, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(66, 4, 66, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(67, 4, 67, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(68, 4, 68, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(69, 4, 69, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(70, 4, 70, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(71, 4, 71, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(72, 4, 72, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(73, 4, 73, '2019-05-06 11:05:14', '2019-05-06 11:05:14'),
+	(74, 4, 74, '2019-05-06 11:05:14', '2019-05-06 11:05:14');
 /*!40000 ALTER TABLE `t_shirt_image` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.t_shirt_sleeve
+-- Дамп структуры для таблица cottonworld.t_shirt_sleeve
 CREATE TABLE IF NOT EXISTS `t_shirt_sleeve` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -415,14 +515,14 @@ CREATE TABLE IF NOT EXISTS `t_shirt_sleeve` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.t_shirt_sleeve: ~2 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.t_shirt_sleeve: ~2 rows (приблизительно)
 /*!40000 ALTER TABLE `t_shirt_sleeve` DISABLE KEYS */;
 INSERT INTO `t_shirt_sleeve` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'короткий рукав', NULL, NULL),
 	(2, 'длинный рукав', NULL, NULL);
 /*!40000 ALTER TABLE `t_shirt_sleeve` ENABLE KEYS */;
 
--- Дамп структуры для таблица cottonWorld.users
+-- Дамп структуры для таблица cottonworld.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -434,7 +534,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы cottonWorld.users: ~0 rows (приблизительно)
+-- Дамп данных таблицы cottonworld.users: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
