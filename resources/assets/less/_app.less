@@ -426,10 +426,10 @@ input.form-control:focus {
   margin-top: 4px;
 }
 
-.color:hover {
+/*.color:hover {
   cursor: pointer;
   border-color: transparent;
-}
+}*/
 
 .color-white {
   background-color: white;
@@ -522,11 +522,6 @@ input.form-control:focus {
   .gallery-image {
     border: 1px solid #a7a7a7;
     border-radius: .25rem;
-    /*border-top:1px solid #a7a7a7;
-    border-left:1px solid #a7a7a7;
-    border-right:1px solid #a7a7a7;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;*/
     margin-right: 4%;
     margin-top: 12px;
     width: 20%;
@@ -540,6 +535,7 @@ input.form-control:focus {
   }
   .gallery-image:hover {
     cursor: pointer;
+    border: 1px solid #000;
   }
 }
 
@@ -637,6 +633,7 @@ input.form-control:focus {
     font-size: 18px;
     color: #4f4f4f;
     font-weight: 700;
+    margin-bottom: 0;
   }
   > .container__color-wrapper {
     .f-start-start;
@@ -647,6 +644,7 @@ input.form-control:focus {
       display: table;
       width: 40px;
       margin-right: 2%;
+      margin-top: 1%;
 
       background-color: transparent;
       outline: none;
@@ -781,7 +779,7 @@ input.form-control:focus {
     > form {
       input[type="text"] {
         height: 24px;
-        /*width: 90%;*/
+        width: 90%;
         background-color: #fff;
         border: 1px solid #eaeaea;
         border-radius: 1rem;
@@ -857,8 +855,22 @@ input.form-control:focus {
   display: block;
   height: 60px; //382px;
 }
-
 /*Header finish*/
+
+/*New Header*/
+.menubar-fixed {
+  > ul {
+    position: fixed;
+    height: 60px;
+    background-color: #F2F2F2;
+    > li {
+      list-style: none;
+      display: inline-block;
+    }
+  }
+}
+
+/*New Header finish*/
 
 /*Main page */
 .banner {
@@ -908,14 +920,16 @@ input.form-control:focus {
     margin-left:200px;
   }*/
 }
-.main_page{
-  h2{
+
+.main_page {
+  h2 {
     margin-top: 24px;
     font-family: 'Roboto Slab', serif;
     font-size: 26px;
     font-weight: 600;
   }
 }
+
 /*Card Slider start*/
 
 .cardsSlider {
@@ -1098,25 +1112,25 @@ div.slider_prev {
   color: red;
 }
 
-.footer-content{
+.footer-content {
   .default-padding;
-  margin-top:24px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
   height: 70px;
   background-color: #f0f0f0;
   text-align: center;
-  p:first-child{
+  p:first-child {
     font-family: 'Roboto Slab', serif;
     font-size: 14px;
     font-weight: 600;
   }
-  .footer-copy{
-    margin-top:4px;
-    span:first-child{
+  .footer-copy {
+    margin-top: 4px;
+    span:first-child {
       font-family: 'Anton', sans-serif;
-      font-size:16px;
-      color:#36B547;
+      font-size: 16px;
+      color: #36B547;
       padding-right: 16px;
     }
   }

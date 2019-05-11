@@ -1,18 +1,26 @@
 import {ProductsCard} from './components/classes/productsCard.class.js';
 import {Menu} from './components/classes/Menu.class.js';
 import {Slider} from './components/classes/Slider.class.js';
-(function($,undefined){
+import {Gallery} from './components/classes/Gallery.class.js';
+(function ($, undefined) {
     $(function () {
         let pathInfo = window.location.pathname.substr(1);
-
-        switch (pathInfo){
+        (new Menu(
+            {
+                "menuBar": "menubar-wrapper",
+                "menuBarCatalog": "menubar-catalog"
+            }
+        )).run();
+        (new Gallery(
+            {
+                "galleryContainer": "article__container__image",
+                "thumbnailContainer":"gallery-image-wrapper",
+                "fullSizeContainer":"gallery-image-full_size",
+                "thumbnail":"gallery-image",
+            }
+        )).run();
+        switch (pathInfo) {
             case "":
-                (new Menu(
-                    {
-                        "menuBar":"menubar-wrapper",
-                        "menuBarCatalog":"menubar-catalog"
-                    }
-                )).run();
                 (new Slider({
                     slider: $('.cardsSlider'),
                     duration: 500,
@@ -20,7 +28,7 @@ import {Slider} from './components/classes/Slider.class.js';
                     navigate: {
                         buttonNext: 'next_btn',
                         buttonPrev: 'prev_btn',
-                        productCartLinkClass:'toProductCart',
+                        productCartLinkClass: 'toProductCart',
                         relativeTo: '.card a>img',
                         positioningElement: '.next_btn,.prev_btn',
                         position: 'middle',
@@ -29,13 +37,15 @@ import {Slider} from './components/classes/Slider.class.js';
                         }
                     }
                 }).start());
+                break;
             case "men/t-shirts":
                 (new ProductsCard(
                     {
-                        "productCard":"products_card",
-                        "productName":"product_name"
+                        "productCard": "products_card",
+                        "productName": "product_name"
                     }
                 )).run();
+                break;
         }
     });
 })(jQuery);
