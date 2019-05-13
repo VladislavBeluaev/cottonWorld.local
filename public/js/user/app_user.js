@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
@@ -79,20 +79,27 @@ module.exports = __webpack_require__(4);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_classes_productsCard_class_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_classes_Menu_class_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_classes_Slider_class_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_classes_Slider_class_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_classes_Gallery_class_js__ = __webpack_require__(5);
+
 
 
 
 (function ($, undefined) {
     $(function () {
         var pathInfo = window.location.pathname.substr(1);
-
+        new __WEBPACK_IMPORTED_MODULE_1__components_classes_Menu_class_js__["a" /* Menu */]({
+            "menuBar": "menubar-wrapper",
+            "menuBarCatalog": "menubar-catalog"
+        }).run();
+        new __WEBPACK_IMPORTED_MODULE_3__components_classes_Gallery_class_js__["a" /* Gallery */]({
+            "galleryContainer": "article__container__image",
+            "thumbnailContainer": "gallery-image-wrapper",
+            "fullSizeContainer": "gallery-image-full_size",
+            "thumbnail": "gallery-image"
+        }).run();
         switch (pathInfo) {
             case "":
-                new __WEBPACK_IMPORTED_MODULE_1__components_classes_Menu_class_js__["a" /* Menu */]({
-                    "menuBar": "menubar-wrapper",
-                    "menuBarCatalog": "menubar-catalog"
-                }).run();
                 new __WEBPACK_IMPORTED_MODULE_2__components_classes_Slider_class_js__["a" /* Slider */]({
                     slider: $('.cardsSlider'),
                     duration: 500,
@@ -109,11 +116,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         }
                     }
                 }).start();
+                break;
             case "men/t-shirts":
                 new __WEBPACK_IMPORTED_MODULE_0__components_classes_productsCard_class_js__["a" /* ProductsCard */]({
                     "productCard": "products_card",
                     "productName": "product_name"
                 }).run();
+                break;
         }
     });
 })(jQuery);
@@ -210,16 +219,6 @@ var Menu = function () {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -387,6 +386,83 @@ var Slider = function () {
 }();
 
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Gallery; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by isida on 11.05.2019.
+ */
+var Gallery = function () {
+    function Gallery(elements) {
+        _classCallCheck(this, Gallery);
+
+        this._galleryContainer$ = $('.' + elements.galleryContainer);
+        this._fullSizeContainer = '.' + elements.fullSizeContainer;
+        this._thumbnailContainer = elements.thumbnailContainer;
+        this._thumbnail = '.' + elements.thumbnail;
+        this._setDataAttribute();
+    }
+
+    _createClass(Gallery, [{
+        key: 'run',
+        value: function run() {
+            $('.' + this._thumbnailContainer).on('click.gallery', $.proxy(this._thumbnailHandler, this));
+        }
+    }, {
+        key: '_thumbnailHandler',
+        value: function _thumbnailHandler(event) {
+            var target = event.target;
+            var replaceSrc = target.tagName === "IMG" ? target.getAttribute('src') : $(target).find('img').attr('src');
+            if (!replaceSrc) return false;
+            var parentTarget = target.closest(this._thumbnail);
+            if (parentTarget === null || $(parentTarget).data('full-size') === true) return false;
+            var currentFullSizeElement$ = this._getFullSizeElement();
+            $(this._fullSizeContainer).animate({ opacity: 0.0 }, 200, function () {
+                $(this).css("visibility", "hidden");
+                $(this).find('img').attr('src', replaceSrc);
+                currentFullSizeElement$.data('full-size', false);
+                $(parentTarget).data('full-size', true);
+                $(this).css("visibility", "visible");
+            });
+            $(this._fullSizeContainer).animate({ opacity: 1.0 }, 200);
+        }
+    }, {
+        key: '_setDataAttribute',
+        value: function _setDataAttribute() {
+            var currentFullWidthImgSrc = $(this._fullSizeContainer).find('img').attr('src');
+            $(this._thumbnail).each(function (_, item) {
+                var thumbnailImg$ = $(item).find('img');
+                $(item).data('full-size', false);
+                if (thumbnailImg$.attr('src') === currentFullWidthImgSrc) $(item).data('full-size', true);
+            });
+        }
+    }, {
+        key: '_getFullSizeElement',
+        value: function _getFullSizeElement() {
+            return $(this._thumbnail).filter(function () {
+                return $(this).data("full-size") === true;
+            });
+        }
+    }]);
+
+    return Gallery;
+}();
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
